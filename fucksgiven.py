@@ -20,7 +20,7 @@ with open('irc.log', 'rb') as l:
 
 def get_timestamp(timestamp):
     if timestamp == 0:
-        timestamp = 1444521600
+        timestamp = 1412985600
     return datetime.fromtimestamp(timestamp, tz=pytz.utc).strftime('%Y-%m-%dT%H:%M:%S%Z')
 
 def process_line(line):
@@ -55,6 +55,7 @@ def process_line(line):
     payload['fields']['value'] = total
     payload['fields']['fucks'] = ','.join(fucks)
     print(payload['tags']['user'])
+    print(payload['time'])
     return [payload]
 
 if __name__=='__main__':
